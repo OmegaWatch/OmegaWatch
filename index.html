@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project Omega</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="98.css" />
+    <link rel="stylesheet" href="grid.css" />
+    <style>
+      body {
+        background: #008080;
+      }
+
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="Info">
+        <div class="window" style="margin: 32px; width: 90%;">
+          <div class="title-bar">
+            <div class="title-bar-text"> Project Omega - Progress Tabulator 1.4 </div>
+            <div class="title-bar-controls">
+              <button aria-label="Close"></button>
+            </div>
+          </div>
+          <div class="window-body">
+            <img src="omega.gif" class="center" />
+            <fieldset>
+              <p style=" text-align: center; font-size:20px">
+                <b>Project Omega - Ver. 1.4.12 </b>
+              </p>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="OverallProgress">
+        <div class="window" style="margin: 32px; width: 92%">
+          <div class="title-bar">
+            <div class="title-bar-text"> Project Overall Progress </div>
+          </div>
+          <div class="window-body">
+            <p>Overall Progress ($4,300/$19,500)</p>
+            <div class="meter" id="o_progress">
+              <span style="width: 22%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Omega1">
+        <div class="window" style="margin: 32px; width: 75%">
+          <div class="title-bar">
+            <div class="title-bar-text"> Omega One </div>
+          </div>
+          <div class="window-body">
+            <div class="container2">
+              <div class="Image">
+                <img src="watch.gif" class="center" height="200px" />
+              </div>
+              <div class="VertBar">
+                <div class="vmeter" id="w1_progress" style="height:100%;">
+                  <span style="height: 44%"></span>
+                </div>
+              </div>
+              <div class="Summ" width="100%">
+                <fieldset>
+                  <p style="text-align: center; font-size:20px;">
+                    <b>$4,300/$9,750</b>
+                  </p>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Omega2">
+        <div class="window" style="margin: 32px; width: 75%">
+          <div class="title-bar">
+            <div class="title-bar-text"> Omega Two </div>
+          </div>
+          <div class="window-body">
+            <div class="container2">
+              <div class="Image">
+                <img src="watch.gif" class="center" height="200px" />
+              </div>
+              <div class="VertBar">
+                <div class="vmeter2" id="w2_progress" style="height:100%;">
+                  <span style="height: 0%"></span>
+                </div>
+              </div>
+              <div class="Summ" width="100%">
+                <fieldset>
+                  <p style="text-align: center; font-size:20px;">
+                    <b>$0/$9,750</b>
+                  </p>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Countdown">
+        <div class="window" style="margin: 32px; width: 80%">
+          <div class="title-bar">
+            <div class="title-bar-text"> Hypo Cash Pool </div>
+          </div>
+          <div class="window-body"> Next Withdrawal Amount <span id="next_withdraw"></span>
+           <fieldset> 
+                  Fortnight Progress (<span id="day_count">0</span>/14)
+
+                  <div class="meter">
+                    <span id="f_progress"></span>
+                  </div>
+                  <br>
+                  Fortnight
+                  <div id="days" class="center">
+                     <button class="day" id="d1">Thur</button>
+                     <button class="day" id="d2">Fri</button>
+                     <button class="day" id="d3">Sat</button>
+                     <button class="day" id="d4">Sun</button>
+                     <button class="day" id="d5">Mon</button>
+                     <button class="day" id="d6">Tue</button>
+                     <button class="day" id="d7">Wed</button>
+                     <br>
+                     <button class="day" id="d8">Thur</button>
+                     <button class="day" id="d9">Fri</button>
+                     <button class="day" id="d10">Sat</button>
+                     <button class="day" id="d11">Sun</button>
+                     <button class="day" id="d12">Mon</button>
+                     <button class="day" id="d13">Tue</button>
+                     <button class="day" id="d14">Wed</button>
+                     
+                  </div>
+                  <br>
+                  <fieldset>
+                    Hypo Cash Pool:
+                    <br>
+                    <b><p id = "hypo_pool" style="text-align: center; font-size:16px; margin:10px;text-transform: capitalize;">
+
+                      
+                    </p>
+                  </b>
+                  </fieldset>
+
+                  <br>
+
+                  Progress on latest 10¢ - <span id = "time_to_10c"></span>
+
+                  <div class="meter">
+                    <span style="width: 0%" id="10c_progress"></span>
+                  </div>
+
+                  <br>
+
+                  Progress on latest $1 - <span id = "time_to_1"></span>
+
+                  <div class="meter">
+                    <span style="width: 0%" id="one_progress"></span>
+                  </div>
+
+                  <br>
+
+                  Progress on latest $10 - <span id = "time_to_10"></span>
+
+                  <div class="meter">
+                    <span style="width: 28.5%" id="ten_progress"></span>
+                  </div>
+
+                  <br>
+
+
+
+           </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="crunch.js"></script>
+  </body>
+</html>

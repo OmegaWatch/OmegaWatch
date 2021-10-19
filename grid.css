@@ -1,0 +1,47 @@
+.container {
+  display: grid; 
+  grid-template-columns: 1fr 0.5fr 0.5fr 1fr; 
+  grid-template-rows: .2fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "Info OverallProgress OverallProgress OverallProgress"
+    "Info Omega1 Omega2 Countdown"; 
+
+  margin: 0;
+  padding: 0;
+}
+.Info { grid-area: Info;}
+.OverallProgress { grid-area: OverallProgress; }
+.Omega1 { grid-area: Omega1; }
+.Omega2 { grid-area: Omega2; }
+.Countdown { grid-area: Countdown; }
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.container2 {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr .1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "Image VertBar"
+    "Summ Summ"; 
+}
+.Image { grid-area: Image; }
+.VertBar { grid-area: VertBar; }
+.Summ {
+
+  grid-area: Summ;
+  margin: 10px;
+}
+
+
+.day{
+  width: 13%;
+  height: 40px;
+  pointer-events: none;
+  cursor: not-allowed;
+}
