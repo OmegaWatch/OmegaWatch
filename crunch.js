@@ -1,7 +1,12 @@
 var current_price = 9750;
 var current_total = 4300;
 var next_withdrawal = 1300;
-
+var tenc_count = 0;
+var tenc_count_trigger = false;
+var dollar_count = 0;
+var dollar_count_trigger = false;
+var ding_audio = new Audio("ding.mp3");
+var tada_audio = new Audio("tada.mp3");
 
 var ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 var tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
@@ -38,6 +43,7 @@ function convert_tens(num) {
     return tens[Math.floor(num / 10)] + " " + ones[num % 10];
   }
 }
+
 
 function convert(num) {
   if (num == 0) return "zero";
@@ -110,9 +116,39 @@ function convert(num) {
         document.getElementById("10c_progress").style.width = (((diffMins%time_to_tenc)/time_to_tenc)*100) + "%";
         document.getElementById("ten_progress").style.width = (((diffHours%time_to_10)/time_to_10)*100) + "%";
 
+
         document.getElementById("hypo_pool").innerHTML = convert(Math.floor(diffMins/time_to_1)) + " dollars and " + convert(10*Math.floor((diffMins%time_to_1)/time_to_tenc)) + " cents";
 
+        if(dollar_count < Math.floor(diffMins/time_to_1))
+        {
+            if(dollar_count_trigger == true)
+            {
+                tada_audio.play();
+                tenc_count_trigger = false;
+            }
+            else
+            {
+                dollar_count_trigger = true;
+            }
+        }
 
+        dollar_count = Math.floor(diffMins/time_to_1);
+        if(tenc_count < Math.floor((diffMins%time_to_1)/time_to_tenc))
+        {
+            if(tenc_count_trigger == true)
+            {
+                ding_audio.play();
+            }
+            else
+            {
+                tenc_count_trigger = true;
+            }
+        }
+
+        tenc_count = Math.floor((diffMins%time_to_1)/time_to_tenc);
+
+
+        
     }
 
     function micro_update()
