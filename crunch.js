@@ -1,8 +1,8 @@
 var current_price = 9750;
 var current_total = 4300;
 var next_withdrawal = 1300;
-var tenc_count = 0;
-var tenc_count_trigger = false;
+var tend_count = 0;
+var tend_count_trigger = false;
 var dollar_count = 0;
 var dollar_count_trigger = false;
 var ding_audio = new Audio("ding.mp3");
@@ -114,17 +114,32 @@ function convert(num) {
 
         document.getElementById("one_progress").style.width = (((diffMins%time_to_1)/time_to_1)*100) + "%";
         document.getElementById("10c_progress").style.width = (((diffMins%time_to_tenc)/time_to_tenc)*100) + "%";
-        document.getElementById("ten_progress").style.width = (((diffHours%time_to_10)/time_to_10)*100) + "%";
+        document.getElementById("ten_progress").style.width = (((diffMins%(time_to_1*10))/(time_to_1*10))*100) + "%";
 
 
         document.getElementById("hypo_pool").innerHTML = convert(Math.floor(diffMins/time_to_1)) + " dollars and " + convert(10*Math.floor((diffMins%time_to_1)/time_to_tenc)) + " cents";
+
+        
+        if(tend_count < Math.floor(diffMins/(time_to_1*10)))
+        {
+            if(tend_count_trigger == true)
+            {
+                tada_audio.play();
+                dollar_count_trigger = false;
+            }
+            else
+            {
+                tend_count_trigger = true;
+            }
+        }
+
+        tend_count = Math.floor(diffMins/(time_to_1*10));
 
         if(dollar_count < Math.floor(diffMins/time_to_1))
         {
             if(dollar_count_trigger == true)
             {
-                tada_audio.play();
-                tenc_count_trigger = false;
+                ding_audio.play();
             }
             else
             {
@@ -133,19 +148,6 @@ function convert(num) {
         }
 
         dollar_count = Math.floor(diffMins/time_to_1);
-        if(tenc_count < Math.floor((diffMins%time_to_1)/time_to_tenc))
-        {
-            if(tenc_count_trigger == true)
-            {
-                ding_audio.play();
-            }
-            else
-            {
-                tenc_count_trigger = true;
-            }
-        }
-
-        tenc_count = Math.floor((diffMins%time_to_1)/time_to_tenc);
 
 
         
