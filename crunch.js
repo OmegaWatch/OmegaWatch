@@ -79,9 +79,20 @@ function convert(num) {
         document.getElementById("f_progress").style.width = ((diffDays % 14) / 14.0 * 100.0) + "%";
         console.log(document.getElementById("f_progress").style.width);
 
+
         for (i = 0; i < 14; i++) {
-            document.getElementById("d" + (i + 1)).disabled = (i < diffDaysMod - 1);
+
+            var element = document.getElementById("d" + (i+1));
+
+            //element.classList.remove("depressed_button");
+            element.disabled = (i < diffDaysMod - 1);
+            console.log(Math.floor(diffDaysMod) + "diffDays");
+            if(i == Math.floor(diffDaysMod))
+            {
+                element.classList.add("depressed_button");
+            }
         }
+
 
         document.getElementById("next_withdraw").innerHTML = "  -  $" + next_withdrawal;
 
@@ -119,7 +130,26 @@ function convert(num) {
 
         document.getElementById("hypo_pool").innerHTML = convert(Math.floor(diffMins/time_to_1)) + " dollars and " + convert(10*Math.floor((diffMins%time_to_1)/time_to_tenc)) + " cents";
 
-        
+        document.getElementById("oa_progress").style.width = (current_total/(current_price*2)*100)+"%";
+        document.getElementById("oa_progress_hc").style.width = ((current_total+(diffMins/time_to_1))/(current_price*2)*100) + "%";
+
+        document.getElementById("cash_total").innerHTML = "$" + current_total + " current withdrawn | $" + (current_total+(diffMins/time_to_1)).toFixed(4) + " withdrawn and hypo | $" + (current_price*2) + " total project cost";
+
+        document.getElementById("w1_progress_withdrawn").style.height = Math.min(current_total/current_price*100, 100) + "%";
+
+        document.getElementById("w1_progress_hc").style.height = Math.min((current_total+(diffMins/time_to_1))/current_price*100, 100) + "%";
+        document.getElementById("w1_progress_dep").style.height = Math.min((current_total+(diffMins/time_to_1))/current_price*100, 20) + "%";
+
+
+        document.getElementById("w2_progress_withdrawn").style.height = Math.max((current_total-current_price)/current_price*100, 0) + "%";
+
+        document.getElementById("w2_progress_hc").style.height = Math.max((current_total+(diffMins/time_to_1)-current_price)/current_price*100, 0) + "%";
+        document.getElementById("w2_progress_dep").style.height = Math.min(Math.max((current_total+(diffMins/time_to_1)-current_price)/current_price*100, 0), 20) + "%";
+
+
+        document.getElementById("w1_cash").innerHTML="$" + Math.min((current_total + (diffMins/time_to_1)), current_price).toFixed(0) + "/$" + current_price;
+        document.getElementById("w2_cash").innerHTML="$" + Math.max((current_total + (diffMins/time_to_1) - current_price), 0).toFixed(0) + "/$" + current_price;
+
         if(tend_count < Math.floor(diffMins/(time_to_1*10)))
         {
             if(tend_count_trigger == true)

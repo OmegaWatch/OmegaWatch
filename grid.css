@@ -38,9 +38,14 @@ body{
   margin: 10px;
 }
 
+.day_set
+{
+  
+}
+
 
 .day{
-  width: 13%;
+  width: 42px;
   height: 40px;
   pointer-events: none;
   cursor: not-allowed;
