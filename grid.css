@@ -5,14 +5,14 @@
 
 
 .container {
-  align-items: flex-start;
+  align-items: center;
   display: grid; 
-  grid-template-columns: 1fr 0.5fr 0.5fr 1fr; 
+  grid-template-columns: .5fr 0.5fr 0.5fr 1fr; 
   grid-template-rows: .2fr 1fr; 
   gap: 0px 0px; 
   grid-template-areas: 
-    "Info OverallProgress OverallProgress OverallProgress"
-    "Info Omega1 Omega2 Countdown"; 
+    "Countdown OverallProgress OverallProgress OverallProgress"
+    "Countdown Omega1 Omega2 Info"; 
 
   margin: 0;
   padding: 0;
