@@ -5,6 +5,7 @@
 
 
 .container {
+  align-items: flex-start;
   display: grid; 
   grid-template-columns: 1fr 0.5fr 0.5fr 1fr; 
   grid-template-rows: .2fr 1fr; 
