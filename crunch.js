@@ -59,7 +59,7 @@ function convert(num) {
 
         const today = Date.now();
 
-        console.log(pay_date);
+        //console.log(pay_date);
 
         const diffTime = Math.abs(today - pay_date);
         const diffDays = diffTime / (1000 * 60 * 60 * 24);
@@ -67,17 +67,17 @@ function convert(num) {
         const diffDaysMod = diffDays % 14;
         const diffMins = (diffTime / (1000 * 60));
         const diffHours = (diffTime/ (1000 * 60 * 24));
-        console.log(diffTime + " milliseconds");
-        console.log(diffDays + " days");
+        //console.log(diffTime + " milliseconds");
+        //console.log(diffDays + " days");
 
-        console.log(diffDaysFloor + " days");
+        //console.log(diffDaysFloor + " days");
 
 
-        console.log(diffDaysMod + " days");
+        //console.log(diffDaysMod + " days");
 
         document.getElementById("day_count").innerHTML = diffDaysFloor % 14;
         document.getElementById("f_progress").style.width = ((diffDays % 14) / 14.0 * 100.0) + "%";
-        console.log(document.getElementById("f_progress").style.width);
+        //console.log(document.getElementById("f_progress").style.width);
 
 
         for (i = 0; i < 14; i++) {
@@ -86,7 +86,7 @@ function convert(num) {
 
             //element.classList.remove("depressed_button");
             element.disabled = (i < Math.floor(diffDaysMod - 1));
-            console.log(Math.floor(diffDaysMod) + "diffDays");
+            //console.log(Math.floor(diffDaysMod) + "diffDays");
             if(i == Math.floor(diffDaysMod - 1))
             {
                 element.classList.add("depressed_button");
@@ -104,14 +104,14 @@ function convert(num) {
         const time_to_10 = 10/dollars_per_hour;
         const time_to_tenc = 1/tenc_per_min;
 
-        console.log(dollars_per_hour + " per hour");
-        console.log(dollars_per_min + " per min");
-        console.log(tenc_per_min + " 10c per min");
+        //console.log(dollars_per_hour + " per hour");
+        //console.log(dollars_per_min + " per min");
+        //console.log(tenc_per_min + " 10c per min");
 
 
-        console.log(time_to_1 + " hours per 10");
-        console.log(time_to_10 + " mins per 1");
-        console.log(time_to_tenc + " mins per 10c");
+        //console.log(time_to_1 + " hours per 10");
+        //console.log(time_to_10 + " mins per 1");
+        //console.log(time_to_tenc + " mins per 10c");
 
 
         document.getElementById("time_to_10c").innerHTML = Math.floor(time_to_tenc)+ " minutes " + Math.floor((time_to_tenc%1)*60) + " seconds.";
@@ -120,7 +120,7 @@ function convert(num) {
        
         //Fix with mod.
 
-        console.log(((diffMins%time_to_1)/time_to_1)*100);
+        //console.log(((diffMins%time_to_1)/time_to_1)*100);
         
 
         document.getElementById("one_progress").style.width = (((diffMins%time_to_1)/time_to_1)*100) + "%";
