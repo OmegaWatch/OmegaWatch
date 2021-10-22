@@ -22,6 +22,7 @@ body {
 	color: #222
 }
 
+
 .title-bar,
 .window,
 button,
@@ -75,9 +76,17 @@ button {
 	height: 20px
 }
 
+.active_button{
+	box-shadow: inset -1px -1px #fff, inset 2px 2px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
+	//padding: 0px;
+  background-image: linear-gradient(45deg, #F1F1F1 25%, transparent 10%), linear-gradient(-45deg, #F1F1F1 25%, transparent 10%), linear-gradient(45deg, transparent 75%, #F1F1F1 75%), linear-gradient(-45deg, transparent 75%, #F1F1F1 75%);
+  background-size: 3px 3px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
 button:not(:disabled):active {
 	box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
-	padding: 0px;
+	//padding: 0px;
 }
 
 .depressed_button
@@ -705,7 +714,7 @@ summary:focus {
 	background-image: linear-gradient(90deg, navy 40%, #fff 0, #fff 50%, navy 0, navy 90%, #fff 0, #fff);
 	background-size: 30px 30px
 
-	
+
 }
 .sub_meter_bar{
 	display: block;
@@ -717,7 +726,7 @@ summary:focus {
 	background-size: 30px 30px;
 	background-size: 30px 30px;
 
-	
+
 }
 
 .sup_meter_bar {
@@ -730,7 +739,7 @@ summary:focus {
 	background-size: 30px 30px;
 	background-size: 30px 30px;
 	transform:  translate(0, -100%);
-	
+
 }
 
 
@@ -813,4 +822,16 @@ summary:focus {
     width: 14px;
     clip-path: polygon(0% calc(0% + 4px), 100% calc(0% + 4px), 100% calc(100% - 4px), 0% calc(100% - 4px));
 
+}
+
+.taskbar_app
+{
+
+  //pointer-events: none;
+width:200px; height:33px; padding:0; padding-left:20px; margin-top:0px; margin-right:5px;display:inline; text-align:left;
+
+}
+.taskbar_app_text
+{
+		color:#000;font-size:16px; font-weight:bold;height:41px;vertical-align: middle; text-align:left;
 }

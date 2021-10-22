@@ -117,11 +117,11 @@ function convert(num) {
         document.getElementById("time_to_10c").innerHTML = Math.floor(time_to_tenc)+ " minutes " + Math.floor((time_to_tenc%1)*60) + " seconds.";
         document.getElementById("time_to_1").innerHTML = Math.floor(time_to_1) + " minutes " + Math.floor((time_to_1%1)*60) + " seconds.";
         document.getElementById("time_to_10").innerHTML = Math.floor(time_to_10) + " hours " + Math.floor((time_to_10%1)*60) + " minutes.";
-       
+
         //Fix with mod.
 
         //console.log(((diffMins%time_to_1)/time_to_1)*100);
-        
+
 
         document.getElementById("one_progress").style.width = (((diffMins%time_to_1)/time_to_1)*100) + "%";
         document.getElementById("10c_progress").style.width = (((diffMins%time_to_tenc)/time_to_tenc)*100) + "%";
@@ -180,12 +180,32 @@ function convert(num) {
         dollar_count = Math.floor(diffMins/time_to_1);
 
 
-        
+
     }
 
-    function micro_update()
+    function minimise(window)
     {
+              document.getElementById(window).style.visibility = "hidden";
+              unclick_buttons();
+    }
 
+    function take_focus(window)
+    {
+              document.getElementById(window).style.visibility = "visible";
+              unclick_buttons();
+              document.getElementById(window+"TB").classList.add("active_button");
+
+    }
+
+    function unclick_buttons()
+    {
+       $(".taskbar_app").removeClass("active_button");
+
+    }
+
+    function click_button()
+    {
+    
     }
 
 
