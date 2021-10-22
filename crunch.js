@@ -85,9 +85,9 @@ function convert(num) {
             var element = document.getElementById("d" + (i+1));
 
             //element.classList.remove("depressed_button");
-            element.disabled = (i < Math.floor(diffDaysMod - 1));
+            element.disabled = (i < Math.floor(diffDaysMod - 0.5));
             //console.log(Math.floor(diffDaysMod) + "diffDays");
-            if(i == Math.floor(diffDaysMod - 1))
+            if(i == Math.floor(diffDaysMod - 0.5))
             {
                 element.classList.add("depressed_button");
             }

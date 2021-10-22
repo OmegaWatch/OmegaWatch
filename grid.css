@@ -2,25 +2,51 @@
 .top {z-index: 100!important; position: relative}
 .bottom {z-index: 10!important; position: relative}
 
+body, html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden
+}
 
+
+.footer {
+  height: 53px;
+  z-index: 1000000!important;
+  position: relative;
+  background: silver;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+  padding: 7.5px;
+}
 
 .container {
+
+  height: calc(100vh - 53px);
   align-items: center;
-  display: grid; 
-  grid-template-columns: .5fr 0.5fr 0.5fr 1fr; 
-  grid-template-rows: .2fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
+  display: grid;
+  grid-template-columns: .5fr 0.5fr 0.5fr 1fr;
+  grid-template-rows: .2fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
     "Countdown OverallProgress OverallProgress OverallProgress"
-    "Countdown Omega1 Omega2 Info"; 
+    "Countdown Omega1 Omega2 Info";
 
   margin: 0;
   padding: 0;
 }
 .Info { grid-area: Info;}
-.OverallProgress { grid-area: OverallProgress; }
-.Omega1 { grid-area: Omega1; }
-.Omega2 { grid-area: Omega2; }
+.OverallProgress {
+  grid-area: OverallProgress;
+  max-width:  1000px;
+}
+.Omega1 {
+  grid-area: Omega1;
+  max-width: 200px;
+}
+.Omega2 {
+  grid-area: Omega2;
+  max-width: 200px;
+}
 .Countdown { grid-area: Countdown; }
 
 body{
@@ -29,13 +55,13 @@ body{
 }
 
 .container2 {
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  grid-template-rows: 1fr .1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr .1fr;
+  gap: 0px 0px;
+  grid-template-areas:
     "Image VertBar"
-    "Summ Summ"; 
+    "Summ Summ";
 }
 .Image { grid-area: Image; }
 .VertBar { grid-area: VertBar; }
@@ -47,7 +73,7 @@ body{
 
 .day_set
 {
-  
+
 }
 
 
