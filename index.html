@@ -12,10 +12,11 @@
       $( ".draggable" ).draggable({
                stack: "div",
                cancel: ".window-body",
-            distance: 0,
+               distance: 0,
             start: function( event, ui ) {
                 unclick_buttons();
                document.getElementById(ui.helper[0].id+"TB").classList.add("active_button");
+               
             }
       }
     );
