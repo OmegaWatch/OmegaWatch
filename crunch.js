@@ -1,6 +1,6 @@
-var current_price = 9750;
-var current_total = 4300;
-var next_withdrawal = 1300;
+var current_price = 10900;
+var current_total = 10500;
+var next_withdrawal = 1500;
 var tend_count = 0;
 var tend_count_trigger = false;
 var dollar_count = 0;
@@ -65,7 +65,7 @@ function convert(num) {
         const diffDays = diffTime / (1000 * 60 * 60 * 24);
         const diffDaysFloor = Math.floor(diffDays);
         const diffDaysMod = diffDays % 14;
-        const diffMins = (diffTime / (1000 * 60));
+        const diffMins = (diffTime / (1000 * 60))%(14*1440);
         const diffHours = (diffTime/ (1000 * 60 * 24));
         //console.log(diffTime + " milliseconds");
         //console.log(diffDays + " days");
@@ -76,7 +76,7 @@ function convert(num) {
         //console.log(diffDaysMod + " days");
 
         document.getElementById("day_count").innerHTML = diffDaysFloor % 14;
-        document.getElementById("f_progress").style.width = ((diffDays % 14) / 14.0 * 100.0) + "%";
+        document.getElementById("f_progress").style.width = Math.min(((diffDays % 14) / 14.0 * 100.0), 100) + "%";
         //console.log(document.getElementById("f_progress").style.width);
 
 
@@ -123,28 +123,28 @@ function convert(num) {
         //console.log(((diffMins%time_to_1)/time_to_1)*100);
 
 
-        document.getElementById("one_progress").style.width = (((diffMins%time_to_1)/time_to_1)*100) + "%";
-        document.getElementById("10c_progress").style.width = (((diffMins%time_to_tenc)/time_to_tenc)*100) + "%";
-        document.getElementById("ten_progress").style.width = (((diffMins%(time_to_1*10))/(time_to_1*10))*100) + "%";
+        document.getElementById("one_progress").style.width = Math.min((((diffMins%time_to_1)/time_to_1)*100), 100)+ "%";
+        document.getElementById("10c_progress").style.width = Math.min((((diffMins%time_to_tenc)/time_to_tenc)*100), 100) + "%";
+        document.getElementById("ten_progress").style.width = Math.min((((diffMins%(time_to_1*10))/(time_to_1*10))*100), 100) + "%";
 
 
         document.getElementById("hypo_pool").innerHTML = convert(Math.floor(diffMins/time_to_1)) + " dollars and " + convert(10*Math.floor((diffMins%time_to_1)/time_to_tenc)) + " cents";
 
-        document.getElementById("oa_progress").style.width = (current_total/(current_price*2)*100)+"%";
-        document.getElementById("oa_progress_hc").style.width = ((current_total+(diffMins/time_to_1))/(current_price*2)*100) + "%";
+        document.getElementById("oa_progress").style.width = Math.min((current_total/(current_price*2)*100), 100) + "%";
+        document.getElementById("oa_progress_hc").style.width = Math.min(((current_total+(diffMins/time_to_1))/(current_price*2)*100), 100) + "%";
 
         document.getElementById("cash_total").innerHTML = "$" + current_total + " current withdrawn | $" + (current_total+(diffMins/time_to_1)).toFixed(4) + " withdrawn and hypo | $" + (current_price*2) + " total project cost";
 
-        document.getElementById("w1_progress_withdrawn").style.height = Math.min(current_total/current_price*100, 100) + "%";
+        document.getElementById("w1_progress_withdrawn").style.height = Math.min(Math.min(current_total/current_price*100, 100), 100) + "%";
 
-        document.getElementById("w1_progress_hc").style.height = Math.min((current_total+(diffMins/time_to_1))/current_price*100, 100) + "%";
-        document.getElementById("w1_progress_dep").style.height = Math.min((current_total+(diffMins/time_to_1))/current_price*100, 20) + "%";
+        document.getElementById("w1_progress_hc").style.height = Math.min(Math.min((current_total+(diffMins/time_to_1))/current_price*100, 100), 100) + "%";
+        document.getElementById("w1_progress_dep").style.height = Math.min(Math.min((current_total+(diffMins/time_to_1))/current_price*100, 20), 100) + "%";
 
 
-        document.getElementById("w2_progress_withdrawn").style.height = Math.max((current_total-current_price)/current_price*100, 0) + "%";
+        document.getElementById("w2_progress_withdrawn").style.height = Math.min(Math.max((current_total-current_price)/current_price*100, 0), 100) + "%";
 
-        document.getElementById("w2_progress_hc").style.height = Math.max((current_total+(diffMins/time_to_1)-current_price)/current_price*100, 0) + "%";
-        document.getElementById("w2_progress_dep").style.height = Math.min(Math.max((current_total+(diffMins/time_to_1)-current_price)/current_price*100, 0), 20) + "%";
+        document.getElementById("w2_progress_hc").style.height = Math.min(Math.max((current_total+(diffMins/time_to_1)-current_price)/current_price*100, 0), 100) + "%";
+        document.getElementById("w2_progress_dep").style.height = Math.min(Math.min(Math.max((current_total+(diffMins/time_to_1)-current_price)/current_price*100, 0), 20), 100) + "%";
 
 
         document.getElementById("w1_cash").innerHTML="$" + Math.min((current_total + (diffMins/time_to_1)), current_price).toFixed(0) + "/$" + current_price;
@@ -226,5 +226,11 @@ function convert(num) {
       return highest;
     }
 
+    function update_wa()
+    {
+      next_withdrawal = document.getElementById("txtWA").value;
+      dollar_count_trigger = false;
+      tend_count_trigger = false;
+    }
 
 crunch_totals();

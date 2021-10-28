@@ -2,13 +2,17 @@
 <html>
   <head>
     <title>Project Omega</title>
+    <link rel="icon" 
+      type="image/jpeg" 
+      href="logo.jpg">
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="98.css" />
     <link rel="stylesheet" href="grid.css" />
+    <link rel="stylesheet" href="clippy.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script>
-    $( function() {
+    $(function() {
       $( ".draggable" ).draggable({
                stack: "div",
                cancel: ".window-body",
@@ -41,7 +45,7 @@
 
   </head>
   <body>
-    <div class="container">
+    <div class="container" onclick="unclick_buttons();">
         <div id="Info" class="Info window draggable" style="margin: 32px; width: 330px;">
           <div class="title-bar">
             <div class="title-bar-text"> Project Omega v1.4 </div>
@@ -102,7 +106,7 @@
               </div>
               <div class="Summ" width="100%">
                 <fieldset>
-                  <p style="text-align: center; font-size:20px;">
+                  <p style="text-align: center; font-size:18px;">
                     <b><span id="w1_cash"></span></b>
                   </p>
                 </fieldset>
@@ -134,7 +138,7 @@
               </div>
               <div class="Summ" width="100%">
                 <fieldset>
-                  <p style="text-align: center; font-size:20px;">
+                  <p style="text-align: center; font-size:18px;">
                     <b><span id="w2_cash"></span></b>
                   </p>
                 </fieldset>
@@ -218,12 +222,31 @@
 
                   <br>
 
-
+                  <div class="field-row">
+                    <label for="txtWA">Withdraw $</label>
+                    <input id="txtWA" type="text" style="height: 30px;"/>
+                    <button onclick="update_wa();">
+                      Re-calculate
+                    </button>
+                  </div>
 
            </fieldset>
           </div>
         </div>
     </div>
+    <div class="clippy">
+      <div class="speech-bubble" >
+        It looks like you're wasting money.
+        <br><br>
+        Would you like some help?
+        <br><br>
+        No, seriously, I think you might need some help.
+      </div>
+      <div style="transform: translate(80px, 10px);">
+      <img src="clippy.png" height="90px;">
+      </div>
+    </div>
+
 
     <footer class="footer taskbar" style="margin:0; padding:4px; overflow:hidden;">
 
@@ -237,11 +260,6 @@
 
 
 
-      <button id="InfoTB" class= "taskbar_app" onclick="take_focus('Info');">
-        <span class="taskbar_app_text">
-             Project Omega v1.4
-         </span>
-      </button>
 
       <button id="CountdownTB" class= "taskbar_app" onclick="take_focus('Countdown');">
         <span class="taskbar_app_text">
@@ -263,6 +281,12 @@
              Project Progress
          </span>
       </button>
+
+            <button id="InfoTB" class= "taskbar_app" onclick="take_focus('Info');">
+              <span class="taskbar_app_text">
+                   Project Omega v1.4
+               </span>
+            </button>
 
 
     </footer>

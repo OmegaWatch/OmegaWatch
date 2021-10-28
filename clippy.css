@@ -1,0 +1,51 @@
+.clippy{
+
+      position: absolute;
+      z-index: 1000001;
+      top:calc(90vh);
+      left:calc(100vw - 230px);
+      visibility: hidden;
+
+transform: translate(0, -100%);
+}
+
+.speech-bubble {
+    position: relative;
+    background: #ffffcc;
+    color: #000000;
+    font-family: "Pixelated MS Sans Serif", Arial;;
+    font-size: 16px;
+    //line-height: 120px;
+    //text-align: center;
+    width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+    border: #000000 solid 2px;
+
+}
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1000002;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent #ffffcc transparent transparent;
+    bottom: -20px;
+    left: 25%;
+    margin-left: -10px;
+}
+.speech-bubble:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    z-index: 0;
+    border-style: solid;
+    border-width: 0 22px 22px 0;
+    border-color: transparent #000000 transparent transparent;
+    bottom: -24px;
+    left: 25%;
+    margin-left: -10px;
+    display: block;
+}
