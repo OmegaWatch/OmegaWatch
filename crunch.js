@@ -148,7 +148,7 @@ function convert(num) {
 
 
         document.getElementById("w1_cash").innerHTML="$" + Math.min((current_total + (diffMins/time_to_1)), current_price).toFixed(0) + "/$" + current_price;
-        document.getElementById("w2_cash").innerHTML="$" + Math.max((current_total + (diffMins/time_to_1) - current_price), 0).toFixed(0) + "/$" + current_price;
+        document.getElementById("w2_cash").innerHTML="$" + Math.min(Math.max((current_total + (diffMins/time_to_1) - current_price), 0), current_price).toFixed(0) + "/$" + current_price;
 
         if(tend_count < Math.floor(diffMins/(time_to_1*10)))
         {
