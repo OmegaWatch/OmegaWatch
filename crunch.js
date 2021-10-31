@@ -1,5 +1,5 @@
 var current_price = 10900;
-var current_total = 10500;
+var current_total = 10400;
 var next_withdrawal = 1500;
 var tend_count = 0;
 var tend_count_trigger = false;
